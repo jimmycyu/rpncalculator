@@ -27,8 +27,8 @@ public class CalculatorStatus {
       return true;
   }
   public void clear(){
-      memoryStack.clear();
       logStack.push((Stack<BigDecimal>)memoryStack.clone());
+      memoryStack.clear();
   }
   public void undo(){
       if(logStack.isEmpty()) {

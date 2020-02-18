@@ -56,6 +56,10 @@ public class CommandLineRpnCalculatorController implements RpnCalculatorControll
     }
 
     private void echo() {
-         System.out.println("Welcome to commandline rpn calculator, type exit to exit");
+         System.out.println("Welcome to commandline rpn calculator, type exit to exit.");
+         System.out.println("*********************************************************");
+         System.out.println("*********[real numbers], [undo], [sqrt], [clear]*********");
+         System.out.println("*********************************************************");
+
     }
 }

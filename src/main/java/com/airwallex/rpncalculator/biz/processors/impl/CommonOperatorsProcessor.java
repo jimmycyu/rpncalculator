@@ -4,6 +4,8 @@ import com.airwallex.rpncalculator.biz.processors.ParameterProcessor;
 import com.airwallex.rpncalculator.model.CalculatorStatus;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+
 
 public class CommonOperatorsProcessor implements ParameterProcessor<ParameterProcessor.Operators> {
 
@@ -28,10 +30,10 @@ public class CommonOperatorsProcessor implements ParameterProcessor<ParameterPro
                 stack.push(value2.subtract(value1));
                 break;
             case multiple:
-                stack.push(value1.multiply(value2));
+                stack.push(value1.multiply(value2, new MathContext(15)));
                 break;
             case divide:
-                stack.push(value2.divide(value1));
+                stack.push(value2.divide(value1, new MathContext(15)));
                 break;
             default:
                 break;
