@@ -5,7 +5,7 @@ import com.airwallex.rpncalculator.model.CalculatorStatus;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
-
+import java.math.RoundingMode;
 
 public class CommonOperatorsProcessor implements ParameterProcessor<ParameterProcessor.Operators> {
 
@@ -24,16 +24,16 @@ public class CommonOperatorsProcessor implements ParameterProcessor<ParameterPro
         BigDecimal value2  = stack.pop();
         switch(parameter) {
             case add:
-                stack.push(value1.add(value2));
+                stack.push(value1.add(value2,new MathContext(15, RoundingMode.DOWN) ));
                 break;
             case substract:
-                stack.push(value2.subtract(value1));
+                stack.push(value2.subtract(value1,new MathContext(15, RoundingMode.DOWN)));
                 break;
             case multiple:
-                stack.push(value1.multiply(value2, new MathContext(15)));
+                stack.push(value1.multiply(value2, new MathContext(15,  RoundingMode.DOWN)));
                 break;
             case divide:
-                stack.push(value2.divide(value1, new MathContext(15)));
+                stack.push(value2.divide(value1, new MathContext(15,  RoundingMode.DOWN)));
                 break;
             default:
                 break;

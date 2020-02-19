@@ -7,6 +7,5 @@ public class UndoOperatorProcessor implements ParameterProcessor<ParameterProces
     @Override
     public void acceptParameter(Operators parameter, CalculatorStatus stack) {
         stack.undo();
-
     }
 }
